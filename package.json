@@ -16,6 +16,7 @@
   "dependencies": {
     "less": "^3.9.0",
     "less-loader": "^4.1.0",
+    "reset": "^0.1.0",
     "reset.css": "^2.0.2",
     "vue": "^2.5.2",
     "vue-router": "^3.0.2",
