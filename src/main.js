@@ -3,10 +3,13 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import ElementUi from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css';
 import vuex from 'vuex'
 import store from  './stroe'
 import 'reset.css'
 Vue.use(vuex)
+Vue.use(ElementUi)
 
 Vue.config.productionTip = false
 
