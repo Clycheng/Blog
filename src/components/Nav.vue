@@ -30,7 +30,19 @@ export default {
             bigImage:"http://0.gravatar.com/avatar/9682932d0231dfdf9ce5a8bdd0736f13?s=80&d=mm&r=g"
 
         }
+    },
+    mounted(){
+        console.log(localStorage)
+        let obj ={
+            admin:"Clydecheng",
+            password:"xdd19960402"
+        }
+        localStorage.clear();
+        localStorage.setItem("user",JSON.stringify(obj));
+        console.log(JSON.parse(localStorage.getItem("user")));
+
     }
+    
 }
 </script>
 
