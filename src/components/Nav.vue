@@ -1,7 +1,8 @@
 <template>
     <nav>
         <div class = "warp">
-            <div class= "left">
+             
+            <div class= "left" >
                 <div  :class = "isActive?'active':'login-in'" slot="reference"  >
                         <img :src="SamllImgSrc"  class = "small-por" alt="">
                         <router-link to="#"  type="primary" >{{admin}}</router-link>
@@ -10,22 +11,25 @@
                     <span class = "welcome">欢迎光临</span>
                     <router-link to="#" ><el-button type="text" @click="dialogVisible = true" class = "login-bt-name">{{LogIn}}</el-button></router-link>
                 </div>
-                <div class= "user-info">
-                    <span class = "pattern"></span>
-                    <div class = "user-info-content"> 
-                        <h4>{{admin}}</h4>
-                        <div class = "big-por-warp">
-                              <img :src="bigImage" class ="big-por" alt="">
+                <!-- 浮动信息框 -->
+                    <div class="user-info" >
+                        <div class="arrow-up"></div>
+                            <div class="user-info-min">
+                                <h3>Clydecheng</h3>
+                                <div class="usericon">
+                                    <img alt="" :src="bigImage" srcset="http://0.gravatar.com/avatar/9682932d0231dfdf9ce5a8bdd0736f13?s=160&amp;d=mm&amp;r=g 2x" class="avatar avatar-80 photo" height="80" width="80">			
+                                </div>
+                                <div class="userinfo">
+                                    <p>
+                                        <el-button type="info" plain>Site Admin</el-button>
+                                        <el-button type="info" plain>Log out</el-button>
+                                    </p>
+                                    <div class="clear"></div>
+                                </div>
+                            </div>
                         </div>
-                        <div>
-                            <el-button type="info" plain>信息按钮</el-button>
-                        </div>
-                        <div>
-                        <el-button type="info" plain>信息按钮</el-button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                     </div>
+          
             <div class = "right">
                 <span>{{menu}}</span>
             </div>
@@ -63,7 +67,8 @@ export default {
             form: {
                 name: '',
                 password: ''
-            }
+            },
+            show3:true
 
         }
     },
@@ -133,10 +138,16 @@ export default {
                      width: 65%;
                     height: @height;
                     margin: 0 auto;
+                    .left:hover .user-info{
+                        display: block;
+                       
+
+                    }
                         .left{
                             float: left;
                             width: 324px;
                             height: @height;
+                            
                                 .login-in {
                                     height: @height;
                                     display: none;
@@ -174,28 +185,47 @@ export default {
                                 }
                                 // 浮动头像框
                                 .user-info{
-                                    width:150px;
-                                     
-                                     .pattern{
-                                            width: 20px;
-                                            height: 7.5px;
-                                            margin-top: -10px;
-                                            margin-left: 5px;
-                                            border-bottom: 10px solid rgba(152, 148, 148, 0.879);
-                                            border-left: 10px solid transparent;
-                                            border-right: 10px solid transparent;
-                                        }
-                                    .user-info-content{
-                                        padding: 30px 10px;
-                                        text-align: center;
-                                        background-color: rgba(152, 148, 148, 1);
-                                        border-radius: 5px;
-
-                                        }
-                                    .user-info-content:nth-child(div){
-                                        // margin-top: 10px;
-                                        // color: #2f889a
+                                        display: none;
+                                         transition: 1s;
+                                        position: absolute;
+                                        top: 20px;
+                                        padding-top: 10px;
+                                        display: none;
+                                        z-index: 10;
+                                    .arrow-up {
+                                        width: 0;
+                                        height: 0;
+                                        display: block;
+                                        margin-left: 10px;
+                                        border-left: 10px solid transparent;
+                                        border-right: 10px solid transparent;
+                                        border-bottom: 10px solid #7f7f7f;
                                     }
+                                    .user-info-min {
+                                        background: #7f7f7f;
+                                        padding: 10px 20px 20px 20px;
+                                        display: block;
+                                        border-radius: 5px;
+                                        background: rgba(0, 0, 0, 0.5);
+                                             h3 {
+                                                color: #fff;
+                                                text-align: center;
+                                                font-style: bold;
+                                            }
+                                            .usericon {
+                                                margin: 0 auto 10px;
+                                                display: block;
+                                                    img {
+                                                        width: 96px;
+                                                        height: auto;
+                                                        display: block;
+                                                        margin: 0 auto;
+                                                        border-radius: 96px;
+                                                     }
+                                            }
+                                            
+                                    }
+                                    
                                 }
                         }
                         .right{
