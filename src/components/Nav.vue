@@ -76,9 +76,9 @@ export default {
             font-size: 14px;
       }
     //   浮动头像框
-      .user-info {
-        //   width: 
-      }
+    //   .user-info {
+    //     //   width: 
+    //   }
       .user-info  .pattern{
           width: 20px;
           height: 5px;
