@@ -3,16 +3,10 @@
         <div class = "warp">
              
             <div class= "left" >
-                <div  :class = "isActive?'active':'login-in'" slot="reference"  >
+                <div  :class = "isActive?'active':'login-in'"  class = "login-in" slot="reference"  >
                         <img :src="SamllImgSrc"  class = "small-por" alt="">
                         <router-link to="#"  type="primary" >{{admin}}</router-link>
-                </div>
-                <div  :class = "isActive?'login-out':'active'" >
-                    <span class = "welcome">欢迎光临</span>
-                    <router-link to="#" ><el-button type="text" @click="dialogVisible = true" class = "login-bt-name">{{LogIn}}</el-button></router-link>
-                </div>
-                <!-- 浮动信息框 -->
-                    <div class="user-info" >
+                        <div class="user-info" >
                         <div class="arrow-up"></div>
                             <div class="user-info-min">
                                 <h3>Clydecheng</h3>
@@ -21,14 +15,21 @@
                                 </div>
                                 <div class="userinfo">
                                     <p>
-                                        <el-button type="info" plain>Site Admin</el-button>
-                                        <el-button type="info" plain>Log out</el-button>
+                                        <el-button type="info" plain><router-link to="">Site Admin</router-link></el-button>
+                                        <el-button type="info" plain v-on:click="clear"><router-link to="">Log out</router-link></el-button>
                                     </p>
                                     <div class="clear"></div>
                                 </div>
                             </div>
                         </div>
-                     </div>
+                </div>
+                <div  :class = "isActive?'login-out':'active'" >
+                    <span class = "welcome">欢迎光临</span>
+                    <router-link to="#" ><el-button type="text" @click="dialogVisible = true" class = "login-bt-name">{{LogIn}}</el-button></router-link>
+                </div>
+                <!-- 浮动信息框 -->
+                    
+            </div>
           
             <div class = "right">
                 <span>{{menu}}</span>
@@ -94,6 +95,7 @@ export default {
 
     },
     methods:{
+        // element登录框关闭
          handleClose(done) {
         // this.$confirm('确认关闭？')
         //   .then(_ => {
@@ -101,6 +103,7 @@ export default {
         //   })
         //   .catch(_ => {});
          },
+        //  登录
           onSubmit(name,password) {
              console.log(this.form.name,this.form.password);
             if( name ==="admin"&&password==="admin"){
@@ -117,7 +120,12 @@ export default {
                     type: 'warning'
                     });
             }
-         }
+         },
+        // 退出登录
+        clear:function(){
+            sessionStorage.clear();
+            location.reload();
+        }
     
     }
     
@@ -138,19 +146,19 @@ export default {
                      width: 65%;
                     height: @height;
                     margin: 0 auto;
-                    .left:hover .user-info{
-                        display: block;
-                       
-
-                    }
                         .left{
                             float: left;
                             width: 324px;
                             height: @height;
                             
                                 .login-in {
+                                    position: relative;
                                     height: @height;
                                     display: none;
+
+                                }
+                                .login-in:hover .user-info{
+                                    display: block;
                                 }
                                 .login-out{
                                     background: red;
