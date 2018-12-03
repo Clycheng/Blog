@@ -5,9 +5,14 @@ import App from './App'
 import router from './router'
 import ElementUi from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css';
+import VueLazyLoad from 'vue-lazyload'
 import vuex from 'vuex'
 import store from  './stroe'
 import 'reset.css'
+Vue.use(VueLazyLoad,{
+  // error:'@/assets/logo.png',
+  // loading:'@/assets/logo.png'
+})
 Vue.use(vuex)
 Vue.use(ElementUi)
 

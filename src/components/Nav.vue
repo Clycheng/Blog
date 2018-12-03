@@ -4,14 +4,14 @@
              
             <div class= "left" >
                 <div  :class = "isActive?'active':'login-in'"  class = "login-in" slot="reference"  >
-                        <img :src="SamllImgSrc"  class = "small-por" alt="">
+                        <img v-lazy="SamllImgSrc"  class = "small-por" alt="">
                         <router-link to="#"  type="primary" >{{admin}}</router-link>
                         <div class="user-info" >
                         <div class="arrow-up"></div>
                             <div class="user-info-min">
                                 <h3>Clydecheng</h3>
                                 <div class="usericon">
-                                    <img alt="" :src="bigImage" srcset="http://0.gravatar.com/avatar/9682932d0231dfdf9ce5a8bdd0736f13?s=160&amp;d=mm&amp;r=g 2x" class="avatar avatar-80 photo" height="80" width="80">			
+                                    <img alt=""  v-lazy="bigImage"  class="avatar avatar-80 photo" height="80" width="80">			
                                 </div>
                                 <div class="userinfo">
                                     <p>
@@ -62,8 +62,8 @@ export default {
             LogIn:"Log In",
             admin:"Clydecheng",
             menu:"设置菜单",
-            SamllImgSrc:"http://0.gravatar.com/avatar/9682932d0231dfdf9ce5a8bdd0736f13?s=10&d=mm&r=g",
-            bigImage:"http://0.gravatar.com/avatar/9682932d0231dfdf9ce5a8bdd0736f13?s=80&d=mm&r=g",
+            SamllImgSrc:"../assets/logo.png",
+            bigImage:"@/assets/image/big-por.jpeg",
             dialogVisible: false,
             form: {
                 name: '',
