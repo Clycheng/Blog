@@ -2,6 +2,7 @@
     <div>
         <!-- nav 登录显示 -->
         <Nav></Nav>
+        <Header></Header>
         <!-- {{$store.state.showState.show}} -->
         <!-- header 
                 左边logo
@@ -16,22 +17,22 @@
                     热门标签 
                 底部banner-->
         <!-- footer -->
-
                 
     </div>
 </template>
 
 <script>
 import Nav from '@/components/Nav'
+import Header from '@/components/Header'
 export default {
     data(){
         return{
-            
         }
     },
     name:"Index",
     components:{
-        Nav:Nav
+        Nav:Nav,
+        Header:Header
     },
     mounted(){
         // window.onload=function(){

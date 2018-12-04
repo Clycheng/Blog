@@ -1,7 +1,7 @@
 <template>
     <nav>
         <div class = "warp">
-             
+             <!-- 左边登录 -->
             <div class= "left" >
                 <div  :class = "isActive?'active':'login-in'"  class = "login-in" slot="reference"  >
                         <img v-lazy="SamllImgSrc"  class = "small-por" alt="">
@@ -30,7 +30,7 @@
                 <!-- 浮动信息框 -->
                     
             </div>
-          
+          <!-- 右边 -->
             <div class = "right">
                 <span>{{menu}}</span>
             </div>
@@ -47,10 +47,11 @@
                     <el-input v-model="form.password" type="password" placeholder="请输入密码"></el-input>
                 </el-form-item>
                 <el-button type="primary" @click="onSubmit(form.name,form.password),handleClose" class="login-bt">立即登录</el-button>
-         
+
             </el-form>
          </el-dialog>
     </nav>
+    
 </template>
 
 <script>
@@ -62,8 +63,8 @@ export default {
             LogIn:"Log In",
             admin:"Clydecheng",
             menu:"设置菜单",
-            SamllImgSrc:"../assets/logo.png",
-            bigImage:"@/assets/image/big-por.jpeg",
+            SamllImgSrc:require('@/assets/image/small-por.jpeg'),
+            bigImage:require('@/assets/image/big-por.jpeg'),
             dialogVisible: false,
             form: {
                 name: '',
