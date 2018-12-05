@@ -43,6 +43,9 @@
 </template>
 
 <script>
+// import axios from 'axios'
+// import Vue from 'vue';
+// import menu from '../../mock/menu.json'
 export default {
     name:"Header",
     data(){
@@ -52,6 +55,15 @@ export default {
                activeIndex: 'red',
         activeIndex2: '1',
         }
+    },
+    mounted(){
+       
+        this.ajax.get('/news/index', 'type=top&key=123456').then(response =>{
+            console.log(response);
+        }).catch(ery =>{
+          console.log(ery);  
+        })
+        // console.log(menu);
     },
     methods:{
          handleSelect(key, keyPath) {

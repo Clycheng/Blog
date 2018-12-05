@@ -1,0 +1,26 @@
+{
+    "status":0,
+    "menu":{
+        "first":{
+            "head":"第一阶段",
+            "subSecond":[
+                "HTML+CSS","Javascript","JS基本特效","JS高级特征"
+            ],
+            "subThird":[]
+        },
+        "second":{
+            "head":"第二阶段",
+            "subSecond":[
+                "HTML5","CSS3","UI框架+轮子","移动端WEB开发"
+            ],
+            "subThird":[]
+        },
+        "third":{
+            "head":"第三阶段",
+            "subSecond":[
+                "Web服务器基础","PHP基础","AJAX上篇","AJAX上篇"
+            ],
+            "subThird":[]
+        }
+    }
+}

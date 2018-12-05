@@ -8,11 +8,16 @@ import 'element-ui/lib/theme-chalk/index.css';
 import VueLazyLoad from 'vue-lazyload'
 import vuex from 'vuex'
 import store from  './stroe'
+import axios from 'axios'
 import 'reset.css'
 Vue.use(VueLazyLoad,{
   // error:'@/assets/logo.png',
   // loading:'@/assets/logo.png'
 })
+Vue.filter('getYMD', function(input) {
+  return input.split(' ')[0];
+})
+Vue.prototype.ajax = axios;
 Vue.use(vuex)
 Vue.use(ElementUi)
 
