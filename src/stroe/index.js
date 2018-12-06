@@ -1,12 +1,12 @@
 import vue from 'vue'
 import vuex from 'vuex'
-import showState from  './show_state.js' 
+import Mock from  './mock.js' 
 vue.use(vuex);
 
 
 export default new vuex.Store({
     modules:{
-        showState:showState
+        mock:Mock
     }
     // state:{
     //     show:"3123131312"

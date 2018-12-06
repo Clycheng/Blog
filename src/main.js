@@ -10,18 +10,17 @@ import vuex from 'vuex'
 import store from  './stroe'
 import axios from 'axios'
 import 'reset.css'
+require ('./mock')
 Vue.use(VueLazyLoad,{
-  // error:'@/assets/logo.png',
+  error:'@/assets/logo.png',
   // loading:'@/assets/logo.png'
-})
-Vue.filter('getYMD', function(input) {
-  return input.split(' ')[0];
 })
 Vue.prototype.ajax = axios;
 Vue.use(vuex)
 Vue.use(ElementUi)
 
 Vue.config.productionTip = false
+
 
 /* eslint-disable no-new */
 new Vue({

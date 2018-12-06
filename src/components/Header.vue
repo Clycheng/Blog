@@ -43,27 +43,28 @@
 </template>
 
 <script>
-// import axios from 'axios'
-// import Vue from 'vue';
-// import menu from '../../mock/menu.json'
+// import Mock from require('mockjs')
 export default {
     name:"Header",
     data(){
         return{
             logoImage:require('@/assets/image/logo.png'),
             seoHead:"前端博客",
-               activeIndex: 'red',
-        activeIndex2: '1',
+            activeIndex: 'red',
+            activeIndex2: '1',
+            menu:""
         }
     },
     mounted(){
-       
-        this.ajax.get('/news/index', 'type=top&key=123456').then(response =>{
-            console.log(response);
+       var that = this;
+        this.ajax.get('/api/data').then(response =>{
+           
+            this.menu = (response);
+             console.log(this.menu);
         }).catch(ery =>{
           console.log(ery);  
         })
-        // console.log(menu);
+        // console.log(Mock);
     },
     methods:{
          handleSelect(key, keyPath) {

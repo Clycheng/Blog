@@ -1,24 +1,63 @@
-// 引入mockjs
-const Mock = require('mockjs');
-// 获取 mock.Random 对象
-const Random = Mock.Random;
-// mock一组数据
-const produceNewsData = function() {
-    let articles = [];
-    for (let i = 0; i < 100; i++) {
-        let newArticleObject = {
-            title: Random.csentence(5, 30), //  Random.csentence( min, max )
-            thumbnail_pic_s: Random.dataImage('300x250', 'mock的图片'), // Random.dataImage( size, text ) 生成一段随机的 Base64 图片编码
-            author_name: Random.cname(), // Random.cname() 随机生成一个常见的中文姓名
-            date: Random.date() + ' ' + Random.time() // Random.date()指示生成的日期字符串的格式,默认为yyyy-MM-dd；Random.time() 返回一个随机的时间字符串
-        }
-        articles.push(newArticleObject)
-    }
- 
+// //参照mockjs的文档，进行操作
+// // 配置 Mock 路径
+// require.config({
+//     paths: {
+//         mock: 'http://mockjs.com/dist/mock'
+//     }
+// })
+// // 加载 Mock
+// require(['mock'], function(Mock){
+//     // 使用 Mock
+//     var data = Mock.mock({
+//         'list|1-10': [{
+//             'id|+1': 1
+//         }]
+//     })
+//     // 输出结果
+//     document.body.innerHTML +=
+//         '<pre>' +
+//         JSON.stringify(data, null, 4) +
+//         '</pre>'
+// })
+
+
+const Mock = require('mockjs')
+var  menu = {
+            "status":0,
+            "menu":{
+                "first":{
+                    "head":"第一阶段",
+                    "subSecond":[
+                        "HTML+CSS","Javascript","JS基本特效","JS高级特征"
+                    ],
+                    "subThird":[]
+                },
+                "second":{
+                    "head":"第二阶段",
+                    "subSecond":[
+                        "HTML5","CSS3","UI框架+轮子","移动端WEB开发"
+                    ],
+                    "subThird":[]
+                },
+                "third":{
+                    "head":"第三阶段",
+                    "subSecond":[
+                        "Web服务器基础","PHP基础","AJAX上篇","AJAX上篇"
+                    ],
+                    "subThird":[]
+                }
+            }
+        } 
+
+
+        menu = JSON.stringify(menu)
+        console.log(menu)
+// var image =
+//使用mockjs模拟数据
+Mock.mock('/api/data', (req, res) => {
     return {
-        articles: articles
-    }
-}
- 
-// Mock.mock( url, post/get , 返回的数据)；
-Mock.mock('/news/index', 'post', produceNewsData);
+        data:{
+            menu: menu//menu
+        }//data
+    }//return
+})

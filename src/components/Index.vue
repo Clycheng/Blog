@@ -3,7 +3,7 @@
         <!-- nav 登录显示 -->
         <Nav></Nav>
         <Header></Header>
-        <!-- {{$store.state.showState.show}} -->
+        <!-- {{$store.state.mock.menu}} -->
         <!-- header 
                 左边logo
                 右边菜单

@@ -63,8 +63,8 @@ export default {
             LogIn:"Log In",
             admin:"Clydecheng",
             menu:"设置菜单",
-            SamllImgSrc:require('@/assets/image/small-por.jpeg'),
-            bigImage:require('@/assets/image/big-por.jpeg'),
+            SamllImgSrc:require('../assets/image/small-por.jpeg'),
+            bigImage:require('../assets/image/big-por.jpeg'),
             dialogVisible: false,
             form: {
                 name: '',
@@ -83,7 +83,6 @@ export default {
             console.log(obj)
             this.isActive=true;
             this.admin = obj.name
-            
         }
         // console.log(localStorage)
         // let obj ={
