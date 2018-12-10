@@ -12,12 +12,12 @@
                         </div>
                         <!-- 右边菜单 -->
                         <div class ="menu-right">
-                            <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal"  active-text-color="#4c9cde" @select="handleSelect">
-                               <el-submenu index="1"  >
-                                    <template slot="title" >第一阶段</template>
-                                    <el-menu-item index="1-1">选项1</el-menu-item>
-                                    <el-menu-item index="1-2">选项2</el-menu-item>
-                                    <el-menu-item index="1-3">选项3</el-menu-item>
+                            <el-menu :default-active="activeIndex"  class="el-menu-demo" mode="horizontal"  active-text-color="#4c9cde" @select="handleSelect">
+                               <el-submenu   v-for="item in menu" :key="item.index" index="1" tabindex="0">
+                                    <template slot="title" >{{item.head}}</template>
+                                    <el-menu-item index="">{{item.index}}</el-menu-item>
+                                    <!-- <el-menu-item index="index+1-index+1">选项2</el-menu-item>
+                                    <el-menu-item index="index+1-index+1">选项3</el-menu-item> -->
                                 </el-submenu>
                                 <el-submenu index="2">
                                     <template slot="title">第二阶段</template>
@@ -34,6 +34,15 @@
                                
                             </el-menu>
                         </div>
+                        <!-- <div class = "menu-right"  >
+                             <el-menu :default-active="activeIndex"  class="el-menu-demo" mode="horizontal"  active-text-color="#4c9cde" @select="handleSelect">
+                               <el-submenu index="index+1"  v-for="item in menu" :key="item.index" >
+                                    <template slot="title" >{{item.head}}</template>
+                                    <el-menu-item index="1-index+1" v-for="items in item.subSecond" :key="items.index" >{{items}}</el-menu-item>
+                                </el-submenu>
+                               
+                            </el-menu>
+                        </div> -->
                          <h1 class = "seo-haed ">{{seoHead}}</h1>
                          <div class = "clear" style="clear:both"></div>
                 </div>
@@ -58,9 +67,11 @@ export default {
     mounted(){
        var that = this;
         this.ajax.get('/api/data').then(response =>{
-           
-            this.menu = (response);
-             console.log(this.menu);
+        //    console.log(response)
+            this.menu =response.data.data.menu.menu;
+             
+            //  JSOn.stringify(this.menu.data.data.menu)
+             console.log(this.menu)
         }).catch(ery =>{
           console.log(ery);  
         })
@@ -69,7 +80,11 @@ export default {
     methods:{
          handleSelect(key, keyPath) {
         console.log(key, keyPath);
-      }
+        
+      },
+      add:function(key){
+            console.log(key);
+        }
     }
 }
 </script>

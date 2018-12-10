@@ -50,8 +50,8 @@ var  menu = {
         } 
 
 
-        menu = JSON.stringify(menu)
-        console.log(menu)
+        // menu = JSON.stringify(menu)
+        // console.log(menu)
 // var image =
 //使用mockjs模拟数据
 Mock.mock('/api/data', (req, res) => {
