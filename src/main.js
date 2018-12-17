@@ -11,8 +11,8 @@ import store from  './stroe'
 import axios from 'axios'
 import 'reset.css'
 require ('./mock')
-Vue.use(VueLazyLoad,{
-  error:'@/assets/logo.png',
+Vue.use(VueLazyLoad, {
+  error: '@/assets/logo.png',
   // loading:'@/assets/logo.png'
 })
 Vue.prototype.ajax = axios;
